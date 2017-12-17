@@ -10,6 +10,7 @@ buildscript {
                 rxAndroid   : '2.0.1',
                 rxBinding   : '2.0.0',
                 gson        : '2.8.0',
+                retrofit    : '2.3.0',
                 jUnit       : '4.12'
         ]
     }
