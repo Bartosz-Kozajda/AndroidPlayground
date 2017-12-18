@@ -3,4 +3,5 @@ apply from: '../ktlint.gradle'
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
+    implementation "com.google.code.gson:gson:$versions.gson"
 }
