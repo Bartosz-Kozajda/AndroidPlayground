@@ -3,13 +3,14 @@
     package="com.bkozajda.androidplayground">
 
     <application
+        android:name=".PlaygroundApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.bkozajda.androidplayground.main.view.MainActivity">
+        <activity android:name="com.bkozajda.androidplayground.toprated.view.TopRatedActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
