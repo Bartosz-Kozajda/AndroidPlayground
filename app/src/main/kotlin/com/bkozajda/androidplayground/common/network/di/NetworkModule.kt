@@ -1,11 +1,29 @@
 package com.bkozajda.androidplayground.common.network.di
 
-import org.koin.dsl.context.Context
-import org.koin.dsl.module.Module
+import com.bkozajda.androidplayground.common.network.ApiConfig
+import dagger.Module
+import dagger.Provides
+import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
-class NetworkModule : Module() {
+@Module
+class NetworkModule {
 
-    override fun context(): Context {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    @Provides
+    @Singleton
+    fun provideApiConfig(): ApiConfig {
+        return ApiConfig()
+    }
+
+    @Provides
+    @Singleton
+    fun provideRetrofit(apiConfig: ApiConfig): Retrofit {
+        return Retrofit.Builder()
+                .baseUrl(apiConfig.baseUrl)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build()
     }
 }

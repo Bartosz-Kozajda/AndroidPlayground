@@ -27,6 +27,10 @@ android {
     sourceSets { main { java.srcDirs = ['src/main/java', 'src/main/kotlin/'] } }
 }
 
+kapt {
+    generateStubs = true
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':core')
@@ -42,10 +46,14 @@ dependencies {
 
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit"
     implementation "com.google.code.gson:gson:$versions.gson"
 
-    implementation "org.koin:koin-android:$versions.koin"
+    implementation "com.google.dagger:dagger:$versions.dagger"
+    implementation "com.google.dagger:dagger-android:$versions.dagger"
+    implementation "com.google.dagger:dagger-android-support:$versions.dagger"
+    kapt "com.google.dagger:dagger-compiler:$versions.dagger"
+    kapt "com.google.dagger:dagger-android-processor:$versions.dagger"
 
     testImplementation "junit:junit:$versions.jUnit"
-    testImplementation "org.koin:koin-test:$versions.koin"
 }
