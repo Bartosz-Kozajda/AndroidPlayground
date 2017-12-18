@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply from: '../ktlint.gradle'
 
+apply from: "../config.gradle"
+
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -42,5 +44,8 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
     implementation "com.google.code.gson:gson:$versions.gson"
 
+    implementation "org.koin:koin-android:$versions.koin"
+
     testImplementation "junit:junit:$versions.jUnit"
+    testImplementation "org.koin:koin-test:$versions.koin"
 }
